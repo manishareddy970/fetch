@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+       
+        fetch("https://fakestoreapi.com/products",{
+               method:"get"
+        }).then((val)=>{
+            return val.json()
+        }).then((val)=>{
+            
+       var a=document.createElement("table");
+       for(i=0;i<val.length;i++){
+       var b=document.createElement("tr");
+       var c=document.createElement("td");
+       c.innerText=val[i].id
+       b.appendChild(c)
+
+       var c1=document.createElement("td");
+       c1.innerText=val[i].title
+       b.appendChild(c1)
+
+       var c2=document.createElement("td");
+       c2.innerText=val[i].price
+       b.appendChild(c2)
+
+       var c3=document.createElement("td");
+       c3.innerText=val[i].description
+       b.appendChild(c3)
+
+       var c4=document.createElement("td");
+       c4.innerText=val[i].category
+       b.appendChild(c4)
+        
+
+       var imgg=document.createElement("img")
+       
+       var c5=document.createElement("td");
+       c5.appendChild(imgg)
+       imgg.setAttribute("src",val[i].image)
+       imgg.style.width="200px";
+       b.appendChild(c5)
+
+
+       var c6=document.createElement("td");
+       c6.innerText=val[i].rating.rate
+       b.appendChild(c6)
+
+       var c7=document.createElement("td");
+       c7.innerText=val[i].rating.count
+       b.appendChild(c7)
+
+
+
+       a.style.border=" solid 1px";
+       b.style.border="  solid 1px";
+       c.style.border=" solid 1px";
+       c1.style.border=" solid 1px";
+       c2.style.border="solid 1px";
+       c3.style.border="solid 1px";
+       c4.style.border="solid 1px";
+       c5.style.border="solid 1px";
+       c6.style.border="solid 1px";
+       c7.style.border="solid 1px";
+
+       a.appendChild(b)
+       document.body.appendChild(a);
+            }
+
+
+        })
+     </script>
+</body>
+</html>
